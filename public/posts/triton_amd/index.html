@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="ref
+Modules
+
+Frontend module of AMD Triton Compiler
+Optimizer module of AMD Triton Compiler
+Machine Code Generation
+
+Frontend
+TODO
+Optimizer
+Optimization Passes:
+
+MLIR general optimization passes, like CSE, DCE, Inlining, etc.
+GPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc.
+Vender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc.
+
+ttir (Triton IR)
+make_ttir_funtion()
+hardware independent
+Passes: inline optimization/CSE/Canonicalization/DCE/Loop Invariant Code Motion/Loop Unroll">
+    <meta name="generator" content="Hugo 0.144.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/triton_amd/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/triton_amd/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="My New Hugo Site">
+  <meta property="og:description" content="ref
+Modules Frontend module of AMD Triton Compiler Optimizer module of AMD Triton Compiler Machine Code Generation Frontend TODO
+Optimizer Optimization Passes:
+MLIR general optimization passes, like CSE, DCE, Inlining, etc. GPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc. Vender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc. ttir (Triton IR) make_ttir_funtion() hardware independent Passes: inline optimization/CSE/Canonicalization/DCE/Loop Invariant Code Motion/Loop Unroll">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+
+  <meta itemprop="name" content="My New Hugo Site">
+  <meta itemprop="description" content="ref
+Modules Frontend module of AMD Triton Compiler Optimizer module of AMD Triton Compiler Machine Code Generation Frontend TODO
+Optimizer Optimization Passes:
+MLIR general optimization passes, like CSE, DCE, Inlining, etc. GPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc. Vender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc. ttir (Triton IR) make_ttir_funtion() hardware independent Passes: inline optimization/CSE/Canonicalization/DCE/Loop Invariant Code Motion/Loop Unroll">
+  <meta itemprop="wordCount" content="144">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="My New Hugo Site">
+  <meta name="twitter:description" content="ref
+Modules Frontend module of AMD Triton Compiler Optimizer module of AMD Triton Compiler Machine Code Generation Frontend TODO
+Optimizer Optimization Passes:
+MLIR general optimization passes, like CSE, DCE, Inlining, etc. GPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc. Vender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc. ttir (Triton IR) make_ttir_funtion() hardware independent Passes: inline optimization/CSE/Canonicalization/DCE/Loop Invariant Code Motion/Loop Unroll">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1"></h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><a href="https://rocm.blogs.amd.com/software-tools-optimization/kernel-development-optimizations-with-triton-on-/README.html">ref</a></p>
+<h1 id="modules">Modules</h1>
+<ol>
+<li>Frontend module of AMD Triton Compiler</li>
+<li>Optimizer module of AMD Triton Compiler</li>
+<li>Machine Code Generation</li>
+</ol>
+<h2 id="frontend">Frontend</h2>
+<p>TODO</p>
+<h2 id="optimizer">Optimizer</h2>
+<p>Optimization Passes:</p>
+<ol>
+<li>MLIR general optimization passes, like CSE, DCE, Inlining, etc.</li>
+<li>GPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc.</li>
+<li>Vender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc.</li>
+</ol>
+<h3 id="ttir-triton-ir">ttir (Triton IR)</h3>
+<p><code>make_ttir_funtion()</code>
+hardware independent
+Passes: inline optimization/CSE/Canonicalization/DCE/Loop Invariant Code Motion/Loop Unroll</p>
+<h3 id="ttgir-triton-gpu-ir">ttgir (Triton GPU IR)</h3>
+<p><code>make_ttgir()</code>
+hardware dependent
+designed for GPU platform to boost its performance
+Passes: AMD GPU Matmul/Block PingPong/Pipeline etc</p>
+<h3 id="llir-llvm-ir">llir (LLVM-IR)</h3>
+<p><code>make_llir()</code>
+IR-level optimization and AMD GPU specific optimization</p>
+<h2 id="machine-code-generation">Machine Code Generation</h2>
+<p>AMDGCN assembly generation (<code>make_amdgcn()</code>) and AMD hsaco ELF file generation.</p>
+<h1 id="instrution">Instrution</h1>
+<p>PTX: 并行线程执行 (Parallel Thread eXecution) ISA
+<a href="https://link.zhihu.com/?target=https%3A//docs.nvidia.com/cuda/parallel-thread-execution/index.html">ptx</a></p>
+<p>SASS: Streaming ASSembler
+<a href="https://link.zhihu.com/?target=https%3A//docs.nvidia.com/cuda/cuda-binary-utilities/index.html">cuda binary utils</a></p>
+<h1 id="amd-architecture">AMD Architecture</h1>
+<p>Southern Island: Graphics Core Next (GCN) 架构</p>
+<h1 id="cuda-gpu">CUDA GPU</h1>
+<p><a href="https://developer.nvidia.cn/cuda-gpus#compute">compute capability</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  My New Hugo Site 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

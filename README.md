@@ -1,2 +1,0 @@
-# hebais.github.io
-blog
