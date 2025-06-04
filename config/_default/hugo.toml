@@ -2,3 +2,7 @@
 
 baseURL = "https://hebais.github.io/"
 languageCode = "en"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
