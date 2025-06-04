@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tritons on Teng Study website</title>
-    <link>http://localhost:1313/triton/</link>
-    <description>Recent content in Tritons on Teng Study website</description>
+    <title>Tritons on Hebais&#39; Little World</title>
+    <link>https://hebais.github.io/triton/</link>
+    <description>Recent content in Tritons on Hebais&#39; Little World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Wed, 28 May 2025 11:10:51 +0800</lastBuildDate><atom:link href="http://localhost:1313/triton/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 May 2025 11:10:51 +0800</lastBuildDate><atom:link href="https://hebais.github.io/triton/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>TritonAMD</title>
-      <link>http://localhost:1313/triton/tritonamd/</link>
+      <link>https://hebais.github.io/triton/tritonamd/</link>
       <pubDate>Wed, 28 May 2025 11:10:51 +0800</pubDate>
       
-      <guid>http://localhost:1313/triton/tritonamd/</guid>
+      <guid>https://hebais.github.io/triton/tritonamd/</guid>
       <description>&lt;p&gt;This is a note from:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://rocm.blogs.amd.com/software-tools-optimization/kernel-development-optimizations-with-triton-on-/README.html&#34; target=&#34;_blank&#34;&gt;kernel-development-optimizations-with-triton-on-amd&lt;/a&gt;&lt;/p&gt;
 

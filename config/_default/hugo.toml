@@ -1,4 +1,4 @@
 # config/_default/hugo.toml
 
-baseURL = "https://your_domain.com/"
+baseURL = "https://hebais.github.io/"
 languageCode = "en"

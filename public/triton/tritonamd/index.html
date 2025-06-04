@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>TritonAMD &middot; Teng Study website</title>
-  <meta name="title" content="TritonAMD &middot; Teng Study website" />
+  <title>TritonAMD &middot; Hebais&#39; Little World</title>
+  <meta name="title" content="TritonAMD &middot; Hebais&#39; Little World" />
   
   
   
   
   
-  <link rel="canonical" href="http://localhost:1313/triton/tritonamd/" />
+  <link rel="canonical" href="https://hebais.github.io/triton/tritonamd/" />
   
   
   
@@ -64,8 +64,8 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/triton/tritonamd/">
-  <meta property="og:site_name" content="Teng Study website">
+  <meta property="og:url" content="https://hebais.github.io/triton/tritonamd/">
+  <meta property="og:site_name" content="Hebais&#39; Little World">
   <meta property="og:title" content="TritonAMD">
   <meta property="og:description" content="This is a note from:
 kernel-development-optimizations-with-triton-on-amd
@@ -100,7 +100,7 @@ MLIR general optimization passes, like CSE, DCE, Inlining, etc. GPU specific opt
     
     "abstract": "\u003cp\u003eThis is a note from:\u003c\/p\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/rocm.blogs.amd.com\/software-tools-optimization\/kernel-development-optimizations-with-triton-on-\/README.html\u0022 target=\u0022_blank\u0022\u003ekernel-development-optimizations-with-triton-on-amd\u003c\/a\u003e\u003c\/p\u003e\n\n\u003ch1 class=\u0022relative group\u0022\u003eModules \n    \u003cdiv id=\u0022modules\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#modules\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003col\u003e\n\u003cli\u003eFrontend module of AMD Triton Compiler\u003c\/li\u003e\n\u003cli\u003eOptimizer module of AMD Triton Compiler\u003c\/li\u003e\n\u003cli\u003eMachine Code Generation\u003c\/li\u003e\n\u003c\/ol\u003e\n\n\u003ch2 class=\u0022relative group\u0022\u003eFrontend \n    \u003cdiv id=\u0022frontend\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#frontend\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003eTODO\u003c\/p\u003e\n\n\u003ch2 class=\u0022relative group\u0022\u003eOptimizer \n    \u003cdiv id=\u0022optimizer\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#optimizer\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003eOptimization Passes:\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003eMLIR general optimization passes, like CSE, DCE, Inlining, etc.\u003c\/li\u003e\n\u003cli\u003eGPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc.\u003c\/li\u003e\n\u003cli\u003eVender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc.\u003c\/li\u003e\n\u003c\/ol\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003ettir (Triton IR) \n    \u003cdiv id=\u0022ttir-triton-ir\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ttir-triton-ir\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e\u003ccode\u003emake_ttir_funtion()\u003c\/code\u003e\nhardware independent\nPasses: inline optimization\/CSE\/Canonicalization\/DCE\/Loop Invariant Code Motion\/Loop Unroll\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/triton\/tritonamd\/",
+    "url" : "https:\/\/hebais.github.io\/triton\/tritonamd\/",
     "author" : {
       "@type": "Person",
       "name": ""
@@ -177,7 +177,7 @@ MLIR general optimization passes, like CSE, DCE, Inlining, etc. GPU specific opt
         <nav class="flex space-x-3">
 
             
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Teng Study website</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Hebais&rsquo; Little World</a>
             
 
         </nav>
@@ -711,7 +711,7 @@ IR-level optimization and AMD GPU specific optimization</p>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/"
+  data-url="https://hebais.github.io/"
   style="z-index:500"
 >
   <div
