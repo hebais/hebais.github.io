@@ -2,21 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tritons on Hebais&#39; Little World</title>
-    <link>https://hebais.github.io/triton/</link>
+    <link>http://localhost:1313/triton/</link>
     <description>Recent content in Tritons on Hebais&#39; Little World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Wed, 28 May 2025 11:10:51 +0800</lastBuildDate><atom:link href="https://hebais.github.io/triton/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 May 2025 11:10:51 +0800</lastBuildDate><atom:link href="http://localhost:1313/triton/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>TritonAMD</title>
-      <link>https://hebais.github.io/triton/tritonamd/</link>
+      <link>http://localhost:1313/triton/tritonamd/</link>
       <pubDate>Wed, 28 May 2025 11:10:51 +0800</pubDate>
       
-      <guid>https://hebais.github.io/triton/tritonamd/</guid>
-      <description>&lt;p&gt;This is a note from:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://rocm.blogs.amd.com/software-tools-optimization/kernel-development-optimizations-with-triton-on-/README.html&#34; target=&#34;_blank&#34;&gt;kernel-development-optimizations-with-triton-on-amd&lt;/a&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/triton/tritonamd/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#amd-architecture&#34;&gt;AMD Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#modules&#34;&gt;Modules&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#frontend&#34;&gt;Frontend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#optimizer&#34;&gt;Optimizer&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ttir-triton-ir&#34;&gt;ttir (Triton IR)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ttgir-triton-gpu-ir&#34;&gt;ttgir (Triton GPU IR)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#llir-llvm-ir&#34;&gt;llir (LLVM-IR)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#machine-code-generation&#34;&gt;Machine Code Generation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#passes&#34;&gt;Passes&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#gputransforms&#34;&gt;GPUTransforms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;AMD Architecture 
+    &lt;div id=&#34;amd-architecture&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#amd-architecture&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Supported:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;xxx&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h1 class=&#34;relative group&#34;&gt;Modules 
     &lt;div id=&#34;modules&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
@@ -33,49 +68,26 @@
 &lt;li&gt;Optimizer module of AMD Triton Compiler&lt;/li&gt;
 &lt;li&gt;Machine Code Generation&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;
 
-&lt;h2 class=&#34;relative group&#34;&gt;Frontend 
-    &lt;div id=&#34;frontend&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#frontend&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;TODO&lt;/p&gt;
 
-&lt;h2 class=&#34;relative group&#34;&gt;Optimizer 
-    &lt;div id=&#34;optimizer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#optimizer&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;Optimization Passes:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;MLIR general optimization passes, like CSE, DCE, Inlining, etc.&lt;/li&gt;
-&lt;li&gt;GPU specific optimization passes, like Pipeline, Prefetch, Matmul accelerate, Coalesce, etc.&lt;/li&gt;
-&lt;li&gt;Vender specific GPU optimization passes, for example Nvidia provides TMA, Async Dot, etc. AMD provides OptimizeLDSUsage, BlockPingpong, etc.&lt;/li&gt;
-&lt;/ol&gt;
 
-&lt;h3 class=&#34;relative group&#34;&gt;ttir (Triton IR) 
-    &lt;div id=&#34;ttir-triton-ir&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ttir-triton-ir&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;make_ttir_funtion()&lt;/code&gt;
-hardware independent
-Passes: inline optimization/CSE/Canonicalization/DCE/Loop Invariant Code Motion/Loop Unroll&lt;/p&gt;</description>
+
+
+&lt;figure&gt;
+      &lt;img
+    class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; fetchpriority=&#34;low&#34; alt=&#34;Flow&#34;
+    srcset=&#34;
+      /triton/tritonamd/triton/tritonamd/TritonCompilerBlockDiagram_hu_b1ef32b1a94d3401.jpg 330w,
+      /triton/tritonamd/triton/tritonamd/TritonCompilerBlockDiagram_hu_fb0311e73f09b829.jpg 660w,
+      /triton/tritonamd/triton/tritonamd/TritonCompilerBlockDiagram_hu_4127da5514ed7df8.jpg 1280w&#34;
+    data-zoom-src=&#34;http://localhost:1313/triton/tritonamd/triton/tritonamd/TritonCompilerBlockDiagram.jpg&#34;
+    src=&#34;http://localhost:1313/triton/tritonamd/triton/tritonamd/TritonCompilerBlockDiagram.jpg&#34;
+  /&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;</description>
       
     </item>
     
