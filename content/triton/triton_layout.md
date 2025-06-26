@@ -179,6 +179,56 @@ triton/lib/Dialect/TritonGPU/Transforms/Utility.cpp
 4. 循环迭代上述计算找到最大值的那个连续维度(连续性最优的维度)
 
 ```C++
+// setCoalescedEncoding
+struct CoalescePass : public impl::TritonGPUCoalesceBase<CoalescePass> {
+  void
+  setCoalescedEncoding(ModuleAxisInfoAnalysis &axisInfoAnalysis, Operation *op,
+                       int numWarps, int threadsPerWarp,
+                       llvm::MapVector<Operation *, Attribute> &layoutMap) {
+    Value ptr = getMemAccessPtr(op);
+    auto refTensorType = cast<RankedTensorType>(ptr.getType());
+
+    LDBG("Considering op: " << *op);
+    LLVM_DEBUG({
+      DBGS() << "axis info of pointer: ";
+      axisInfoAnalysis.getAxisInfo(ptr)->print(llvm::dbgs());
+      llvm::dbgs() << "\n";
+    });
+
+    auto contiguity = axisInfoAnalysis.getAxisInfo(ptr)->getContiguity();
+    // 取最大contiguity的维度
+    SmallVector<unsigned> order = argSort(contiguity);
+    LDBG("order=[" << triton::join(order, ", ") << "]");
+
+    // ...
+    auto shapePerCTA = triton::gpu::getShapePerCTA(refTensorType);
+    LDBG("shapePerCTA=[" << triton::join(shapePerCTA, ", ") << "]");
+
+    int numElems = product<int64_t>(shapePerCTA);
+    int numThreads = numWarps * threadsPerWarp;
+
+    unsigned perThread = getNumElementsPerThread(op, order, axisInfoAnalysis);
+    LDBG("perThread for op: " << perThread);
+
+    // for循环，考虑所有当前ptr所具有相同order依赖的算子
+    for (Operation *opSameOrder : memAccessesSameOrder) {
+      if (opSameOrder == op)
+        continue;
+      unsigned currPerThread =
+          getNumElementsPerThread(opSameOrder, order, axisInfoAnalysis);
+      LDBG("perThread for opSameOrder: " << currPerThread);
+      // 取相同依赖op中的最大的值
+      perThread = std::max(perThread, currPerThread);
+    }
+
+    perThread = std::min<int>(perThread, std::max(numElems / numThreads, 1));
+    LDBG("perThread: " << perThread);
+    // ...
+    int threadsPerWarp =
+          triton::gpu::TritonGPUDialect::getThreadsPerWarp(mod);
+  }
+}
+
 unsigned getNumElementsPerThread(Operation *op, SmallVector<unsigned> order,
                                  ModuleAxisInfoAnalysis &axisInfoAnalysis) {
   Value val = getMemAccessPtr(op);
@@ -192,6 +242,7 @@ unsigned getNumElementsPerThread(Operation *op, SmallVector<unsigned> order,
   unsigned maxContig =
       std::min(valInfo.getContiguity(order[0]), shapePerCTA[order[0]]);
   unsigned alignment = std::min(maxMultiple, maxContig);
+  // vectorize inst limitation is 128-bit
   unsigned currPerThread = std::min(alignment, 128 / elemNumBits);
   LDBG("elemNumBytes: " << elemNumBytes
                         << ", divisibility: " << maxMultipleBytes
@@ -201,3 +252,42 @@ unsigned getNumElementsPerThread(Operation *op, SmallVector<unsigned> order,
 }
 ```
 
+## ThredsPerWarp and WarpsPerCTA
+
+triton/include/triton/Dialect/TritonGPU/IR/TritonGPUAttrDefs.td
+
+```C++
+// starting from the contiguous dimension
+for (unsigned d = 0; d < rank - 1; ++d) {
+  unsigned i = order[d];
+  // shapePerCTA // sizePerThread
+  unsigned threadsPerCTA = std::clamp<unsigned>(remainingThreads, 1, std::max<unsigned>(1, shapePerCTA[i] / sizePerThread[i]));
+  threadsPerWarp[i] = std::clamp<unsigned>(threadsPerCTA, 1, remainingLanes);
+  // warpsPerCTA
+  warpsPerCTA[i] = std::clamp<unsigned>(threadsPerCTA / threadsPerWarp[i], 1, remainingWarps);
+  remainingWarps /= warpsPerCTA[i];
+  remainingLanes /= threadsPerWarp[i];
+  remainingThreads /= threadsPerCTA;
+  prevLanes *= threadsPerWarp[i];
+  prevWarps *= warpsPerCTA[i];
+}
+
+// Expand the last dimension to fill the remaining lanes and warps
+threadsPerWarp[order[rank - 1]] = numThreadsPerWarp / prevLanes;
+warpsPerCTA[order[rank - 1]] = numWarps / prevWarps;
+```
+
+## Vector Size
+
+load/store Op
+```C++
+unsigned getVectorSize(Value ptr) const {
+    auto tensorTy = dyn_cast<RankedTensorType>(ptr.getType());
+    if (!tensorTy)
+      return 1;
+    auto contiguity = getContiguity(ptr);
+    auto pointeeBitWidth = triton::getPointeeBitWidth(tensorTy);
+    // limited by hw supported bitwidth
+    return std::min<unsigned>(128 / pointeeBitWidth, contiguity);
+  }
+```

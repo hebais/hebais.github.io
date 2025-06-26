@@ -60,7 +60,14 @@ if __name__ == "__main__":
 ```bash
 triton-opt add_kernel.ttir -convert-triton-to-tritongpu='target=cuda:80'
 
+# print axis analysis
 triton-opt add.ttgir -test-print-alignment
+
+# process with coalesce
+triton-opt add.ttgir -tritongpu-coalesce
+
+# lower to llir
+triton-translate add-opt.ttgir -target=llvmir
 ```
 
 # ttgir
